@@ -92,8 +92,8 @@ impl Universe {
         count
     }
     pub fn new() -> Universe{
-        let width = 640;
-        let height = 640;
+        let width = 128;
+        let height = 128;
 
         let cells = (0..width*height)
             .map(|i| {
@@ -110,9 +110,18 @@ impl Universe {
             cells,
         }
     }
-
     pub fn render(&self) -> String{
         self.to_string()
     }
 
+    //add more getter functions for width, height and pointer to cells array and expose to JS
+    pub fn width(&self) -> u32 {
+        self.width
+    }
+    pub fn height(&self) -> u32 {
+        self.height
+    }
+    pub fn cells(&self) -> *const Cell {
+        self.cells.as_ptr()
+    }
 }
